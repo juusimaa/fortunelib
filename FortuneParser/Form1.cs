@@ -16,5 +16,15 @@ namespace FortuneParser
         {
             InitializeComponent();
         }
+
+        private void browseButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void importButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

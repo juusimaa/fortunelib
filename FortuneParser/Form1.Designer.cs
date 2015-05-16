@@ -42,6 +42,7 @@
             this.browseButton.TabIndex = 0;
             this.browseButton.Text = "...";
             this.browseButton.UseVisualStyleBackColor = true;
+            this.browseButton.Click += new System.EventHandler(this.browseButton_Click);
             // 
             // inputTextBox
             // 
@@ -66,6 +67,7 @@
             this.importButton.TabIndex = 3;
             this.importButton.Text = "Import";
             this.importButton.UseVisualStyleBackColor = true;
+            this.importButton.Click += new System.EventHandler(this.importButton_Click);
             // 
             // MainForm
             // 
