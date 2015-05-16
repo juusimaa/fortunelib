@@ -8,8 +8,8 @@ namespace FortuneLib.Enums
 {
     public enum FortuneType
     {
-        Art = 0,
-        AsciiArt,
-        Bofh
+        art = 0,
+        asciiart,
+        bofh
     }
 }

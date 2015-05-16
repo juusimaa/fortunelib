@@ -10,7 +10,12 @@ namespace FortuneLib
     {
         public string FortuneText { get; set; }
         public FortuneLib.Enums.FortuneType Type { get; set; }
-        public int Lenght { get; set; }
+        
+        public int Lenght 
+        {
+            get { return FortuneText.Length; }
+        }
+        
         public bool IsOffensive { get; set; }
     }
 }
