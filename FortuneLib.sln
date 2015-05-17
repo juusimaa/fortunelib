@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FortuneLib", "FortuneLib\Fo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FortuneLibTests", "FortuneLibTests\FortuneLibTests.csproj", "{3FB4E3F9-E26E-4A21-9264-B95B51572C85}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FortuneGUI", "FortuneGUI\FortuneGUI.csproj", "{83BCAEFA-45D1-46EE-953D-342D543CFDE2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{3FB4E3F9-E26E-4A21-9264-B95B51572C85}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3FB4E3F9-E26E-4A21-9264-B95B51572C85}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3FB4E3F9-E26E-4A21-9264-B95B51572C85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83BCAEFA-45D1-46EE-953D-342D543CFDE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83BCAEFA-45D1-46EE-953D-342D543CFDE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83BCAEFA-45D1-46EE-953D-342D543CFDE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83BCAEFA-45D1-46EE-953D-342D543CFDE2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

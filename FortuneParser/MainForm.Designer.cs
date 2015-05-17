@@ -58,7 +58,8 @@
             this.outputTextBox.Location = new System.Drawing.Point(13, 42);
             this.outputTextBox.Multiline = true;
             this.outputTextBox.Name = "outputTextBox";
-            this.outputTextBox.Size = new System.Drawing.Size(577, 176);
+            this.outputTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.outputTextBox.Size = new System.Drawing.Size(577, 577);
             this.outputTextBox.TabIndex = 2;
             // 
             // exportButton
@@ -95,7 +96,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(683, 231);
+            this.ClientSize = new System.Drawing.Size(675, 631);
             this.Controls.Add(this.importButton);
             this.Controls.Add(this.offCheckBox);
             this.Controls.Add(this.exportButton);

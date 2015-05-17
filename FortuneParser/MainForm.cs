@@ -1,15 +1,8 @@
 ﻿using FortuneLib;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.IO;
-using FortuneLib.Enums;
+using System.Windows.Forms;
 
 namespace FortuneParser
 {
@@ -43,14 +36,16 @@ namespace FortuneParser
 
                         while ((line = sr.ReadLine()) != null)
                         {
-                            cookieText += line + Environment.NewLine;
-
                             if (line.CompareTo("%") == 0)
                             {
                                 var cookie = Fortune.ParseFortune(item, cookieText, offCheckBox.Checked);
                                 _fortuneList.Add(cookie);
                                 cookieCount++;
                                 cookieText = String.Empty;
+                            }
+                            else
+                            {
+                                cookieText += line + Environment.NewLine;
                             }
                         }
 
@@ -68,6 +63,20 @@ namespace FortuneParser
         private void importButton_Click(object sender, EventArgs e)
         {
             _fortuneList = FortuneLib.Utils.DeserializeList<List<FortuneItem>>("fortunes.bin");
+
+            var counter = 1;
+
+            foreach (var item in _fortuneList)
+            {
+                if (item.Type == FortuneLib.Enums.FortuneType.bofh)
+                {
+                    outputTextBox.Text += item.ToString(counter++);
+                }
+                else
+                {
+                    outputTextBox.Text += item.ToString();
+                }
+            }
         }
     }
 }
