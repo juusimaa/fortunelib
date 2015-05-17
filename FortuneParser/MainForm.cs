@@ -15,7 +15,7 @@ namespace FortuneParser
 {
     public partial class MainForm : Form
     {
-        private readonly List<Fortune> _fortuneList = new List<Fortune>();
+        private List<FortuneItem> _fortuneList = new List<FortuneItem>();
 
         public MainForm()
         {
@@ -47,7 +47,7 @@ namespace FortuneParser
 
                             if (line.CompareTo("%") == 0)
                             {
-                                var cookie = Utils.ParseFortune(item, cookieText, offCheckBox.Checked);
+                                var cookie = Fortune.ParseFortune(item, cookieText, offCheckBox.Checked);
                                 _fortuneList.Add(cookie);
                                 cookieCount++;
                                 cookieText = String.Empty;
@@ -60,9 +60,14 @@ namespace FortuneParser
             }
         }
 
+        private void exportButton_Click(object sender, EventArgs e)
+        {
+            FortuneLib.Utils.SerializeList(_fortuneList, "fortunes.bin");
+        }
+
         private void importButton_Click(object sender, EventArgs e)
         {
-
+            _fortuneList = FortuneLib.Utils.DeserializeList<List<FortuneItem>>("fortunes.bin");
         }
     }
 }

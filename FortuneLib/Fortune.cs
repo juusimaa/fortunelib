@@ -1,21 +1,28 @@
-﻿using System;
+﻿using FortuneLib.Enums;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace FortuneLib
 {
-    public class Fortune
+    public static class Fortune
     {
-        public string FortuneText { get; set; }
-        public FortuneLib.Enums.FortuneType Type { get; set; }
-        
-        public int Lenght 
+        public static FortuneItem ParseFortune(string filename, string text, bool isOffensive)
         {
-            get { return FortuneText.Length; }
+            FortuneType t;
+            var b = Enum.TryParse<FortuneType>(Path.GetFileNameWithoutExtension(filename), out t);
+
+            if (!b) return null;
+
+            return new FortuneItem
+            {
+                Type = t,
+                FortuneText = text,
+                IsOffensive = isOffensive
+            };
         }
-        
-        public bool IsOffensive { get; set; }
     }
 }

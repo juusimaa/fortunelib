@@ -40,8 +40,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enums\FortuneType.cs" />
-    <Compile Include="Fortune.cs" />
+    <Compile Include="FortuneItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Fortune.cs" />
     <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>

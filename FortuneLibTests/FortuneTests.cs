@@ -8,12 +8,14 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace FortuneLib.Tests
 {
     [TestClass()]
-    public class UtilsTests
+    public class FortuneTests
     {
         [TestMethod()]
-        public void ParseFortuneTest()
+        public void ParseFortuneTest_InvalidFortuneType()
         {
-            Assert.Fail();
+            FortuneItem expected = null;
+            var result = Fortune.ParseFortune("sfdfsdf", "some text", false);
+            Assert.AreSame(expected, result);
         }
     }
 }

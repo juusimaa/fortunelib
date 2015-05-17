@@ -1,28 +1,66 @@
-﻿using FortuneLib.Enums;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace FortuneLib
 {
     public static class Utils
     {
-        public static Fortune ParseFortune(string filename, string text, bool isOffensive)
+        /// <summary>
+        /// Get enum values as a list.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static IEnumerable<T> GetValues<T>()
         {
-            FortuneType t;
-            var b = Enum.TryParse<FortuneType>(Path.GetFileNameWithoutExtension(filename), out t);
+            return Enum.GetValues(typeof(T)).Cast<T>();
+        }
 
-            if (!b) return null;
-
-            return new Fortune
+        /// <summary>
+        /// Serialize object using BinaryFormatter.
+        /// </summary>
+         /// <param name="list"></param>
+        /// <param name="filename"></param>
+        public static void SerializeList<T>(T @object, string filename)
+        {
+            try
             {
-                Type = t,
-                FortuneText = text,
-                IsOffensive = isOffensive
-            };
+                using (var s = File.Open(filename, FileMode.Create))
+                {
+                    var b = new BinaryFormatter();
+                    b.Serialize(s, @object);
+                }
+            }
+            catch (IOException)
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Deserialize object using BinaryFormatter.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="filename"></param>
+        /// <returns></returns>
+        public static T DeserializeList<T>(string filename)
+        {
+            try
+            {
+                using (var s = File.Open(filename, FileMode.Open))
+                {
+                    var b = new BinaryFormatter();
+                    return (T)b.Deserialize(s);
+                }
+            }
+            catch (IOException)
+            {                
+                throw;
+            }
         }
     }
 }
